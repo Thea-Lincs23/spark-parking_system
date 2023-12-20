@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ParkSysDBSYSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BookReserv">
+    <Key>
+      <PropertyRef Name="gateIdNum" />
+    </Key>
+    <Property Name="gateIdNum" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="gateType" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="vechicleType" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="plateNum" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="timeArrive" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="bookStatus" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserAcc">
+    <Key>
+      <PropertyRef Name="userId" />
+    </Key>
+    <Property Name="userId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="userPassword" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="roleId" Type="int" />
+    <Property Name="userStatus" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserInfo">
+    <Key>
+      <PropertyRef Name="userInfoId" />
+    </Key>
+    <Property Name="userInfoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userInfLname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="userInfFname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="userInfAddress" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="userInfEmail" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="userId" Type="int" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="roleId" />
+    </Key>
+    <Property Name="roleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="roleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="roleDescription" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <Association Name="FK__UserInfo__userId__3A81B327">
+    <End Role="UserAcc" Type="Self.UserAcc" Multiplicity="0..1" />
+    <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserAcc">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="UserInfo">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ParkSysDBSYSModelStoreContainer">
+    <EntitySet Name="BookReserv" EntityType="Self.BookReserv" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserAcc" EntityType="Self.UserAcc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__UserInfo__userId__3A81B327" Association="Self.FK__UserInfo__userId__3A81B327">
+      <End Role="UserAcc" EntitySet="UserAcc" />
+      <End Role="UserInfo" EntitySet="UserInfo" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

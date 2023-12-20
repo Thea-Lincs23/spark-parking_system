@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DBSYSfinalModelStoreContainer" CdmEntityContainer="DBSYSfinalEntities">
+    <EntitySetMapping Name="SecurityStaff">
+      <EntityTypeMapping TypeName="DBSYSfinalModel.SecurityStaff">
+        <MappingFragment StoreEntitySet="SecurityStaff">
+          <ScalarProperty Name="userIdStaff" ColumnName="userIdStaff" />
+          <ScalarProperty Name="userIdnum" ColumnName="userIdnum" />
+          <ScalarProperty Name="staffPassword" ColumnName="staffPassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserAccount">
+      <EntityTypeMapping TypeName="DBSYSfinalModel.UserAccount">
+        <MappingFragment StoreEntitySet="UserAccount">
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="userPassword" ColumnName="userPassword" />
+          <ScalarProperty Name="userInfLname" ColumnName="userInfLname" />
+          <ScalarProperty Name="userInfFname" ColumnName="userInfFname" />
+          <ScalarProperty Name="userInfAddress" ColumnName="userInfAddress" />
+          <ScalarProperty Name="userInfEmail" ColumnName="userInfEmail" />
+          <ScalarProperty Name="roleId" ColumnName="roleId" />
+          <ScalarProperty Name="userStatus" ColumnName="userStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserParking">
+      <EntityTypeMapping TypeName="DBSYSfinalModel.UserParking">
+        <MappingFragment StoreEntitySet="UserParking">
+          <ScalarProperty Name="userParkId" ColumnName="userParkId" />
+          <ScalarProperty Name="userFullName" ColumnName="userFullName" />
+          <ScalarProperty Name="userParkGate" ColumnName="userParkGate" />
+          <ScalarProperty Name="userPlatenum" ColumnName="userPlatenum" />
+          <ScalarProperty Name="userVechile" ColumnName="userVechile" />
+          <ScalarProperty Name="userParkingnum" ColumnName="userParkingnum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRole">
+      <EntityTypeMapping TypeName="DBSYSfinalModel.UserRole">
+        <MappingFragment StoreEntitySet="UserRole">
+          <ScalarProperty Name="roleId" ColumnName="roleId" />
+          <ScalarProperty Name="roleName" ColumnName="roleName" />
+          <ScalarProperty Name="roleDescription" ColumnName="roleDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_TransactionHistory">
+      <EntityTypeMapping TypeName="DBSYSfinalModel.vw_TransactionHistory">
+        <MappingFragment StoreEntitySet="vw_TransactionHistory">
+          <ScalarProperty Name="userParkId" ColumnName="userParkId" />
+          <ScalarProperty Name="userFullName" ColumnName="userFullName" />
+          <ScalarProperty Name="userParkGate" ColumnName="userParkGate" />
+          <ScalarProperty Name="userPlatenum" ColumnName="userPlatenum" />
+          <ScalarProperty Name="userParkingnum" ColumnName="userParkingnum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_UserAccounts">
+      <EntityTypeMapping TypeName="DBSYSfinalModel.vw_UserAccounts">
+        <MappingFragment StoreEntitySet="vw_UserAccounts">
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="userIdnum" ColumnName="userIdnum" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="userPassword" ColumnName="userPassword" />
+          <ScalarProperty Name="userInfLname" ColumnName="userInfLname" />
+          <ScalarProperty Name="userInfFname" ColumnName="userInfFname" />
+          <ScalarProperty Name="userInfAddress" ColumnName="userInfAddress" />
+          <ScalarProperty Name="userInfEmail" ColumnName="userInfEmail" />
+          <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+          <ScalarProperty Name="roleId" ColumnName="roleId" />
+          <ScalarProperty Name="userStatus" ColumnName="userStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

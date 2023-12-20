@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBSYSfinalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="SecurityStaff">
+    <Key>
+      <PropertyRef Name="userIdStaff" />
+    </Key>
+    <Property Name="userIdStaff" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userIdnum" Type="int" Nullable="false" />
+    <Property Name="staffPassword" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserAccount">
+    <Key>
+      <PropertyRef Name="userId" />
+    </Key>
+    <Property Name="userId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userName" Type="varchar(max)" Nullable="false" />
+    <Property Name="userPassword" Type="varchar(max)" Nullable="false" />
+    <Property Name="userInfLname" Type="varchar(max)" Nullable="false" />
+    <Property Name="userInfFname" Type="varchar(max)" Nullable="false" />
+    <Property Name="userInfAddress" Type="varchar(max)" Nullable="false" />
+    <Property Name="userInfEmail" Type="varchar(max)" Nullable="false" />
+    <Property Name="roleId" Type="int" />
+    <Property Name="userStatus" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBSYSfinal.dbo.UserParking' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="UserParking">
+    <Key>
+      <PropertyRef Name="userParkId" />
+      <PropertyRef Name="userFullName" />
+      <PropertyRef Name="userParkGate" />
+      <PropertyRef Name="userPlatenum" />
+      <PropertyRef Name="userParkingnum" />
+    </Key>
+    <Property Name="userParkId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userFullName" Type="varchar(max)" Nullable="false" />
+    <Property Name="userParkGate" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="userPlatenum" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="userParkingnum" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="roleId" />
+    </Key>
+    <Property Name="roleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="roleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="roleDescription" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBSYSfinal.dbo.vw_TransactionHistory' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_TransactionHistory">
+    <Key>
+      <PropertyRef Name="userParkId" />
+      <PropertyRef Name="userFullName" />
+      <PropertyRef Name="userParkGate" />
+      <PropertyRef Name="userPlatenum" />
+      <PropertyRef Name="userParkingnum" />
+    </Key>
+    <Property Name="userParkId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userFullName" Type="varchar(max)" Nullable="false" />
+    <Property Name="userParkGate" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="userPlatenum" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="userParkingnum" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBSYSfinal.dbo.vw_UserAccounts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_UserAccounts">
+    <Key>
+      <PropertyRef Name="userId" />
+      <PropertyRef Name="userIdnum" />
+      <PropertyRef Name="userName" />
+      <PropertyRef Name="userPassword" />
+      <PropertyRef Name="userInfLname" />
+      <PropertyRef Name="userInfFname" />
+      <PropertyRef Name="userInfAddress" />
+      <PropertyRef Name="userInfEmail" />
+      <PropertyRef Name="userStatus" />
+    </Key>
+    <Property Name="userId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userIdnum" Type="int" Nullable="false" />
+    <Property Name="userName" Type="varchar(max)" Nullable="false" />
+    <Property Name="userPassword" Type="varchar(max)" Nullable="false" />
+    <Property Name="userInfLname" Type="varchar(max)" Nullable="false" />
+    <Property Name="userInfFname" Type="varchar(max)" Nullable="false" />
+    <Property Name="userInfAddress" Type="varchar(max)" Nullable="false" />
+    <Property Name="userInfEmail" Type="varchar(max)" Nullable="false" />
+    <Property Name="dateCreated" Type="int" />
+    <Property Name="roleId" Type="int" />
+    <Property Name="userStatus" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="DBSYSfinalModelStoreContainer">
+    <EntitySet Name="SecurityStaff" EntityType="Self.SecurityStaff" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserAccount" EntityType="Self.UserAccount" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserParking" EntityType="Self.UserParking" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[UserParking].[userParkId] AS [userParkId], 
+[UserParking].[userFullName] AS [userFullName], 
+[UserParking].[userParkGate] AS [userParkGate], 
+[UserParking].[userPlatenum] AS [userPlatenum], 
+[UserParking].[userParkingnum] AS [userParkingnum]
+FROM [dbo].[UserParking] AS [UserParking]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_TransactionHistory" EntityType="Self.vw_TransactionHistory" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[vw_TransactionHistory].[userParkId] AS [userParkId], 
+[vw_TransactionHistory].[userFullName] AS [userFullName], 
+[vw_TransactionHistory].[userParkGate] AS [userParkGate], 
+[vw_TransactionHistory].[userPlatenum] AS [userPlatenum], 
+[vw_TransactionHistory].[userParkingnum] AS [userParkingnum]
+FROM [dbo].[vw_TransactionHistory] AS [vw_TransactionHistory]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_UserAccounts" EntityType="Self.vw_UserAccounts" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[vw_UserAccounts].[userId] AS [userId], 
+[vw_UserAccounts].[userIdnum] AS [userIdnum], 
+[vw_UserAccounts].[userName] AS [userName], 
+[vw_UserAccounts].[userPassword] AS [userPassword], 
+[vw_UserAccounts].[userInfLname] AS [userInfLname], 
+[vw_UserAccounts].[userInfFname] AS [userInfFname], 
+[vw_UserAccounts].[userInfAddress] AS [userInfAddress], 
+[vw_UserAccounts].[userInfEmail] AS [userInfEmail], 
+[vw_UserAccounts].[dateCreated] AS [dateCreated], 
+[vw_UserAccounts].[roleId] AS [roleId], 
+[vw_UserAccounts].[userStatus] AS [userStatus]
+FROM [dbo].[vw_UserAccounts] AS [vw_UserAccounts]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
